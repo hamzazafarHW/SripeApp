@@ -33,16 +33,22 @@ const Onboarding2 = (props) => {
     }
 
     return (
-        <SafeAreaView style={[AppStyles.mainContainer, AppStyles.center, {}]}>
+        <SafeAreaView style={[AppStyles.mainContainer, { alignItems: 'center' }]}>
 
             <Header onpress={() => props.navigation.goBack()} title="WELCOME" />
 
-            <FlatList
-                data={DATA}
-                keyExtractor={(item) => item.id}
-                ListHeaderComponent={RenderHeader}
-                renderItem={({ item }) => RenderItem(item)}
-            />
+            <View style={{ height: height * 0.82,  }}>
+                <FlatList
+                    data={DATA}
+                    keyExtractor={(item) => item.id}
+                    ListHeaderComponent={RenderHeader}
+                    renderItem={({ item }) => RenderItem(item)}
+                />
+            </View>
+            
+            <View style={{}}>
+                <Custom_Button placeholder="Next" isIcon={true} onpress={() => alert("THANK YOU!")} />
+            </View>
 
 
         </SafeAreaView>
